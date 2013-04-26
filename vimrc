@@ -9,7 +9,7 @@ filetype plugin indent on
 " -------------
 colorscheme molokai
 set background=dark
-set guifont=Monaco:h18
+set guifont=Menlo:h16
 set guioptions-=T               " Remove GUI toolbar
 set visualbell                  " Suppress audio/visual error bell
 set notimeout                   " No command timeout
@@ -91,7 +91,7 @@ let g:NERDTreeWinSize = 20
 let g:NERDTreeChDirMode=2
 
 " Default JS checker is google syntax
-let g:syntastic_javascript_checker=["gjslint"]
+let g:syntastic_javascript_checkers=["gjslint"]
 
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
