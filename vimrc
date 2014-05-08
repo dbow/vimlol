@@ -9,7 +9,7 @@ filetype plugin indent on
 " -------------
 colorscheme molokai
 set background=dark
-set guifont=Menlo:h16
+set guifont=Inconsolata:h18
 set guioptions-=T               " Remove GUI toolbar
 set visualbell                  " Suppress audio/visual error bell
 set notimeout                   " No command timeout
@@ -22,6 +22,7 @@ set smartindent
 set smarttab                    " Use shiftwidth to tab at line beginning
 set shiftwidth=2                " Width of autoindent
 set number                      " Line numbers
+set cc=80                       " Highlight 80 char column
 set nowrap                      " No wrapping
 set ignorecase                  " Ignore case
 set smartcase                   " ... unless uppercase characters are involved
