@@ -97,16 +97,52 @@ let g:syntastic_javascript_checkers=["gjslint"]
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 
-" SOY
-" Syntax like HTML but 2 spaces for some reason
-autocmd BufRead,BufNewFile *.soy set syntax=html
-autocmd BufRead,BufNewFile *.soy set tabstop=2
-autocmd BufRead,BufNewFile *.soy set shiftwidth=2
+" JS, CSS, SASS, LESS
+" 2 spaces
+autocmd Filetype javascript,css,sass,less set tabstop=2
+autocmd Filetype javascript,css,sass,less set shiftwidth=2
 
 " HTML
 " 4 spaces in HTML
 autocmd Filetype html,htmldjango set tabstop=4
 autocmd Filetype html,htmldjango set shiftwidth=4
+
+" Indent Python in the Google way.
+
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
+endfunction
+
+let pyindent_nested_paren="&sw*2"
+let pyindent_open_paren="&sw*2"
 
 " Machine-local vim settings - keep this at the end
 silent! source ~/.vimrc.local
