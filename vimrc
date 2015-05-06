@@ -97,10 +97,10 @@ let g:syntastic_javascript_checkers=["gjslint"]
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 
-" JS, CSS, SASS, LESS
+" JS, CSS, SASS, LESS, JADE
 " 2 spaces
-autocmd Filetype javascript,css,sass,less set tabstop=2
-autocmd Filetype javascript,css,sass,less set shiftwidth=2
+autocmd Filetype javascript,css,sass,less,jade set tabstop=2
+autocmd Filetype javascript,css,sass,less,jade set shiftwidth=2
 
 " HTML
 " 4 spaces in HTML
