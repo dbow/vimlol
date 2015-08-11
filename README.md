@@ -1,11 +1,12 @@
 dbow's VIM setup
 
 To use:
-git clone to .vim/
-git submodule init
-git submodule update
+* git clone to .vim/
+* `git submodule init`
+* `git submodule update`
 
-Anytime you pull in changes to one of the submodules, run submodule update
+Anytime you pull in changes to one of the submodules, run `git submodule update`
+
 Pathogen is submoduled into vim-pathogen and the autoload directory symlinks to it.
 
 Dependencies:
