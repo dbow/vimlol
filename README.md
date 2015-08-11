@@ -12,6 +12,7 @@ Pathogen is submoduled into vim-pathogen and the autoload directory symlinks to 
 Dependencies:
 Silver Searcher (Ag): https://github.com/ggreer/the_silver_searcher
 
+To add a new submodule, run `git submodule add [the git URL] bundle/[directory]` and commit the result.
 
 Other dev environment stuff
 ---------------------------
