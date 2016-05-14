@@ -7,7 +7,7 @@ filetype plugin indent on
 
 " Configuration
 " -------------
-colorscheme molokai
+colorscheme base16-oceanicnext
 set background=dark
 set guifont=Inconsolata:h18
 set guioptions-=T               " Remove GUI toolbar

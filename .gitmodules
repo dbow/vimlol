@@ -49,3 +49,6 @@
 [submodule "bundle/vim-pug"]
 	path = bundle/vim-pug
 	url = git@github.com:digitaltoad/vim-pug.git
+[submodule "bundle/base16-oceanic-next"]
+	path = bundle/base16-oceanic-next
+	url = https://github.com/wbinnssmith/base16-oceanic-next.git
