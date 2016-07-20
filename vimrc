@@ -51,6 +51,7 @@ set statusline=
 set statusline+=\ %t\ \|\ len:\ \%L\ \|\ type:\ %Y\ \|\ A=\%03.3b/H=\%2.2B\ \|\ line:\ \%2l\ \|\ col:\ \%c
 
 
+let NERDTreeShowHidden=1        " Show . hidden files/folders in NERDTree
 set incsearch                   " Incremental search
 set history=1024                " History size
 
