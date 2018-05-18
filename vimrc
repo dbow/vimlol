@@ -78,9 +78,6 @@ map \           :NERDTreeToggle<CR>
 " FuzzyFinder via :FZF
 set rtp+=/usr/local/opt/fzf
 
-" Git blame
-map <leader>g   :Gblame<CR>
-
 " Comment/uncomment lines
 map <leader>/   <plug>NERDCommenterToggle
 
