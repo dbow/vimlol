@@ -7,9 +7,11 @@ filetype plugin indent on
 
 " Configuration
 " -------------
-colorscheme base16-oceanicnext
+colorscheme OceanicNext
 set background=dark
-set guifont=Inconsolata:h18
+if exists('+guifont')
+  set guifont=Space\ Mono:h18
+endif
 set guioptions-=T               " Remove GUI toolbar
 set visualbell                  " Suppress audio/visual error bell
 set notimeout                   " No command timeout

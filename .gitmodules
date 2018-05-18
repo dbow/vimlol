@@ -49,6 +49,12 @@
 [submodule "bundle/vim-pug"]
 	path = bundle/vim-pug
 	url = git@github.com:digitaltoad/vim-pug.git
-[submodule "bundle/base16-oceanic-next"]
-	path = bundle/base16-oceanic-next
-	url = git@github.com:dbow/base16-oceanic-next.git
+[submodule "bundle/vim-styled-components"]
+	path = bundle/vim-styled-components
+	url = git@github.com:styled-components/vim-styled-components.git
+[submodule "bundle/vim-css3-syntax"]
+	path = bundle/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule "bundle/oceanic-next"]
+	path = bundle/oceanic-next
+	url = git@github.com:mhartington/oceanic-next.git
