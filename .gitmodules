@@ -4,9 +4,6 @@
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = git://github.com/rking/ag.vim.git
-[submodule "bundle/molokai"]
-	path = bundle/molokai
-	url = git://github.com/tomasr/molokai.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
@@ -16,9 +13,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = git://github.com/groenewege/vim-less.git
@@ -40,6 +34,6 @@
 [submodule "bundle/vim-css3-syntax"]
 	path = bundle/vim-css3-syntax
 	url = https://github.com/hail2u/vim-css3-syntax.git
-[submodule "bundle/oceanic-next"]
-	path = bundle/oceanic-next
-	url = git@github.com:mhartington/oceanic-next.git
+[submodule "bundle/Base2Tone-vim"]
+	path = bundle/Base2Tone-vim
+	url = https://github.com/atelierbram/Base2Tone-vim.git

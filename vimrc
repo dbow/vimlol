@@ -7,11 +7,24 @@ filetype plugin indent on
 
 " Configuration
 " -------------
-colorscheme OceanicNext
+
+" Enable true colors if supported: https://gist.github.com/XVilka/8346728
+if $COLORTERM ==# 'truecolor'
+  set termguicolors
+endif
+
 set background=dark
+colorscheme Base2Tone_PoolDark
+
 if exists('+guifont')
   set guifont=Space\ Mono:h18
 endif
+
+" https://github.com/neovim/neovim/wiki/FAQ
+if has('nvim')
+  set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+endif
+
 set guioptions-=T               " Remove GUI toolbar
 set visualbell                  " Suppress audio/visual error bell
 set notimeout                   " No command timeout
