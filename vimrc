@@ -96,6 +96,10 @@ let g:NERDTreeChDirMode=2
 " Default JS checker is google syntax
 let g:syntastic_javascript_checkers=["gjslint"]
 
+" Enable syntax highlighting for flow and JSDoc
+let g:javascript_plugin_flow = 1
+let g:javascript_plugin_jsdoc = 1
+
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 
