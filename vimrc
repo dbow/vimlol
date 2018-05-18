@@ -103,10 +103,10 @@ let g:javascript_plugin_jsdoc = 1
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 
-" JS, CSS, SASS, LESS, JADE/PUG
+" JS, CSS, SASS, LESS, PUG
 " 2 spaces
-autocmd Filetype javascript,css,sass,less,jade,pug set tabstop=2
-autocmd Filetype javascript,css,sass,less,jade,pug set shiftwidth=2
+autocmd Filetype javascript,css,sass,less,pug set tabstop=2
+autocmd Filetype javascript,css,sass,less,pug set shiftwidth=2
 
 " HTML
 " 4 spaces in HTML
