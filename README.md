@@ -15,6 +15,8 @@ fzf: https://github.com/junegunn/fzf
 
 To add a new submodule, run `git submodule add [the git URL] bundle/[directory]` and commit the result.
 
+To remove a submodule, run `git submodule deinit bundle/[directory]` and then `git rm bundle/[directory]` and commit the result.
+
 Other dev environment stuff
 ---------------------------
 
