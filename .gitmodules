@@ -22,12 +22,6 @@
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = git://github.com/groenewege/vim-less.git
-[submodule "bundle/fuzzyfinder"]
-	path = bundle/fuzzyfinder
-	url = git://github.com/vim-scripts/FuzzyFinder.git
-[submodule "bundle/l9"]
-	path = bundle/l9
-	url = git://github.com/vim-scripts/L9.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git

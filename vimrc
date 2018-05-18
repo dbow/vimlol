@@ -75,9 +75,8 @@ vmap <S-tab>    <gv
 " File tree browser
 map \           :NERDTreeToggle<CR>
 
-" FuzzyFinder
-map <leader>f :FufFile **/<CR>
-map <leader>rf :FufRenewCache<CR>
+" FuzzyFinder via :FZF
+set rtp+=/usr/local/opt/fzf
 
 " Git blame
 map <leader>g   :Gblame<CR>
