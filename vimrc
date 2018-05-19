@@ -103,8 +103,32 @@ let g:NERDTreeWinSize = 20
 " Change working directory if you change root directories
 let g:NERDTreeChDirMode=2
 
-" Default JS checker is google syntax
-let g:syntastic_javascript_checkers=["gjslint"]
+" ale
+" ---
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\  'javascript': ['prettier', 'eslint'],
+\  'css': ['prettier'],
+\  'scss': ['prettier'],
+\  'markdown': ['prettier'],
+\}
+
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+
+let g:ale_sign_error = '🔥'
+let g:ale_sign_warning = '🤔'
+
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
+
+" Map keys to navigate between lines with errors and warnings.
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
+map <leader>f :ALEFix<CR>
+" ---
 
 " Enable syntax highlighting for flow and JSDoc
 let g:javascript_plugin_flow = 1
