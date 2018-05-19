@@ -53,18 +53,7 @@ set splitbelow                  " ... and bottom
 set wildmode=list:longest       " Bash-like tab completion
 set scrolloff=3                 " Scroll when the cursor is 3 lines from edge
 set cursorline                  " Highlight current line
-set laststatus=2                " Always show statusline
-
-" Status Line
-" {{ Filename }} |
-" len: {{ Total Lines }} |
-" type: {{ File Type }} |
-" A/H {{ Ascii / Hex value of current char }} |
-" line: {{ line number }}
-" col: {{ column number }}
-set statusline=
-set statusline+=\ %t\ \|\ len:\ \%L\ \|\ type:\ %Y\ \|\ A=\%03.3b/H=\%2.2B\ \|\ line:\ \%2l\ \|\ col:\ \%c
-
+let g:airline_theme='Base2Tone_EveningDark'
 
 let NERDTreeShowHidden=1        " Show . hidden files/folders in NERDTree
 set incsearch                   " Incremental search
