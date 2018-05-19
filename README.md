@@ -42,7 +42,7 @@ source ~/.git-prompt.sh
 source ~/.git-completion.sh
 
 # Command prompt with git info.
-PS1='\[\033[4;30m\]localhost:\w\[\033[0;34m\]\n$(__git_ps1 "(%s)")\$\[\033[0m\] '
+PS1='\[\033[1;34m\]localhost:\w\[\033[0;34m\]\n$(__git_ps1 "(%s)")\$\[\033[0m\] '
 
 # Node
 source ~/.nvm/nvm.sh
