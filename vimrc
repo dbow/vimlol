@@ -41,7 +41,7 @@ set cc=80                       " Highlight 80 char column
 set nowrap                      " No wrapping
 set ignorecase                  " Ignore case
 set smartcase                   " ... unless uppercase characters are involved
-set ofu=syntaxcomplete#Complete " OMNI-COMPLETE
+set omnifunc=syntaxcomplete#Complete
 
 set list                        " Show whitespace
 set listchars=tab:▸\ ,trail:¬   " UTF-8 characters for trailing whitespace
@@ -69,14 +69,15 @@ set autowriteall                " Save when focus is lost
 " ----------
 
 " absolute width of netrw window
-let g:netrw_winsize = -28
+let g:netrw_winsize = 25
 " tree-view
 let g:netrw_liststyle = 3
 " sort is affecting only: directories on the top, files below
 let g:netrw_sort_sequence = '[\/]$,*'
 " open file in a new tab
 let g:netrw_browse_split = 3
-
+" remove banner
+let g:netrw_banner = 0
 
 " Keybindings
 " -----------
