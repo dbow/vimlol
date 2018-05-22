@@ -32,8 +32,8 @@ Other options:
 * Oceanic Next (classic option): [https://github.com/mhartington/oceanic-next](https://github.com/mhartington/oceanic-next)
 * Gruvbox (also classic): [https://github.com/morhetz/gruvbox](https://github.com/morhetz/gruvbox)
 
-Other dev environment stuff
----------------------------
+
+### Other dev environment stuff
 
 .bashrc
 ```

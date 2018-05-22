@@ -124,9 +124,6 @@ endif
 " JAVASCRIPT
 " ----------
 
-" Manage JS language packs directly instead of through polyglot
-let g:polyglot_disabled = ['js']
-
 " Ale
 " ---
 let g:ale_javascript_prettier_use_local_config = 1
@@ -156,9 +153,6 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 " Enable syntax highlighting for flow and JSDoc
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
-
-" Highlight JSON files as javascript
-autocmd BufRead,BufNewFile *.json set filetype=javascript
 
 " 4 spaces in HTML
 autocmd Filetype html,htmldjango set tabstop=4
