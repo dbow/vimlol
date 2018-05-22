@@ -41,7 +41,6 @@ set cc=80                       " Highlight 80 char column
 set nowrap                      " No wrapping
 set ignorecase                  " Ignore case
 set smartcase                   " ... unless uppercase characters are involved
-set omnifunc=syntaxcomplete#Complete
 
 set list                        " Show whitespace
 set listchars=tab:▸\ ,trail:¬   " UTF-8 characters for trailing whitespace
@@ -53,7 +52,6 @@ set splitbelow                  " ... and bottom
 set wildmode=list:longest       " Bash-like tab completion
 set scrolloff=3                 " Scroll when the cursor is 3 lines from edge
 set cursorline                  " Highlight current line
-let g:airline_theme='Base2Tone_PoolDark'
 
 set incsearch                   " Incremental search
 set history=1024                " History size
@@ -65,8 +63,10 @@ set nowritebackup
 
 set autowriteall                " Save when focus is lost
 
+
 " File tree
-" ----------
+" (netrw)
+" ---------
 
 " absolute width of netrw window
 let g:netrw_winsize = 25
@@ -79,6 +79,19 @@ let g:netrw_browse_split = 3
 " remove banner
 let g:netrw_banner = 0
 
+
+" Status line
+" -----------
+
+" lightline config
+" -- INSERT -- is redundant because the mode information is displayed in the statusline:
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'Base2Tone_Pool',
+      \ }
+" (template is smart and detects light or dark colorscheme being used)
+
+
 " Keybindings
 " -----------
 let mapleader = ","
@@ -87,19 +100,22 @@ let mapleader = ","
 vmap <tab>      >gv
 vmap <S-tab>    <gv
 
-" FuzzyFinder via :FZF
-set rtp+=/usr/local/opt/fzf
-map <leader>f :FZF<CR>
-
 " Comment/uncomment lines
 map <leader>/   <plug>NERDCommenterToggle
 
 " Pad comment delimeters with spaces
 let NERDSpaceDelims = 1
 
+" auto-complete
+set omnifunc=syntaxcomplete#Complete
+
 
 " Search
-" -------------
+" ------
+
+" FuzzyFinder via :FZF
+set rtp+=/usr/local/opt/fzf
+map <leader>f :FZF<CR>
 
 " Use Silver Searcher (Ag) with :Ack
 " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
@@ -107,13 +123,14 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+
 " JAVASCRIPT
-" -------------
+" ----------
 
 " Manage JS language packs directly instead of through polyglot
 let g:polyglot_disabled = ['js']
 
-" ale
+" Ale
 " ---
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_fix_on_save = 1
@@ -156,7 +173,7 @@ autocmd Filetype javascript,css,sass,less,pug set shiftwidth=2
 
 
 " PYTHON
-" -------------
+" ------
 
 " Indent Python in the Google way.
 
