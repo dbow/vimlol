@@ -55,7 +55,6 @@ set scrolloff=3                 " Scroll when the cursor is 3 lines from edge
 set cursorline                  " Highlight current line
 let g:airline_theme='Base2Tone_PoolDark'
 
-let NERDTreeShowHidden=1        " Show . hidden files/folders in NERDTree
 set incsearch                   " Incremental search
 set history=1024                " History size
 
@@ -66,6 +65,19 @@ set nowritebackup
 
 set autowriteall                " Save when focus is lost
 
+" File tree
+" ----------
+
+" absolute width of netrw window
+let g:netrw_winsize = -28
+" tree-view
+let g:netrw_liststyle = 3
+" sort is affecting only: directories on the top, files below
+let g:netrw_sort_sequence = '[\/]$,*'
+" open file in a new tab
+let g:netrw_browse_split = 3
+
+
 " Keybindings
 " -----------
 let mapleader = ","
@@ -73,9 +85,6 @@ let mapleader = ","
 " Indent/unindent visual mode selection
 vmap <tab>      >gv
 vmap <S-tab>    <gv
-
-" File tree browser
-map \           :NERDTreeToggle<CR>
 
 " FuzzyFinder via :FZF
 set rtp+=/usr/local/opt/fzf
@@ -87,11 +96,6 @@ map <leader>/   <plug>NERDCommenterToggle
 " Pad comment delimeters with spaces
 let NERDSpaceDelims = 1
 
-" Small default width for NERDTree pane
-let g:NERDTreeWinSize = 20
-
-" Change working directory if you change root directories
-let g:NERDTreeChDirMode=2
 
 " Search
 " -------------
