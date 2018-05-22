@@ -100,11 +100,8 @@ let mapleader = ","
 vmap <tab>      >gv
 vmap <S-tab>    <gv
 
-" Comment/uncomment lines
-map <leader>/   <plug>NERDCommenterToggle
-
-" Pad comment delimeters with spaces
-let NERDSpaceDelims = 1
+" Comment/uncomment lines (via tcomment)
+map <leader>/   gcc
 
 " auto-complete
 set omnifunc=syntaxcomplete#Complete
