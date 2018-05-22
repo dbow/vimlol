@@ -93,6 +93,14 @@ let g:NERDTreeWinSize = 20
 " Change working directory if you change root directories
 let g:NERDTreeChDirMode=2
 
+" Search
+" -------------
+
+" Use Silver Searcher (Ag) with :Ack
+" https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " JAVASCRIPT
 " -------------
