@@ -1,9 +1,6 @@
 [submodule "vim-pathogen"]
 	path = vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "bundle/vim-jsx"]
-	path = bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
 [submodule "bundle/vim-styled-components"]
 	path = bundle/vim-styled-components
 	url = git@github.com:styled-components/vim-styled-components.git

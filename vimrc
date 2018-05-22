@@ -153,6 +153,8 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 " Enable syntax highlighting for flow and JSDoc
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
+" Require .jsx for JSX syntax
+let g:jsx_ext_required = 1
 
 " 4 spaces in HTML
 autocmd Filetype html,htmldjango set tabstop=4
