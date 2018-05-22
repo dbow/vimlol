@@ -53,7 +53,7 @@ set splitbelow                  " ... and bottom
 set wildmode=list:longest       " Bash-like tab completion
 set scrolloff=3                 " Scroll when the cursor is 3 lines from edge
 set cursorline                  " Highlight current line
-let g:airline_theme='Base2Tone_EveningDark'
+let g:airline_theme='Base2Tone_PoolDark'
 
 let NERDTreeShowHidden=1        " Show . hidden files/folders in NERDTree
 set incsearch                   " Incremental search
@@ -79,6 +79,7 @@ map \           :NERDTreeToggle<CR>
 
 " FuzzyFinder via :FZF
 set rtp+=/usr/local/opt/fzf
+map <leader>f :FZF<CR>
 
 " Comment/uncomment lines
 map <leader>/   <plug>NERDCommenterToggle
@@ -91,6 +92,10 @@ let g:NERDTreeWinSize = 20
 
 " Change working directory if you change root directories
 let g:NERDTreeChDirMode=2
+
+
+" JAVASCRIPT
+" -------------
 
 " ale
 " ---
@@ -116,7 +121,6 @@ let g:ale_echo_msg_format = '%linter% says %s'
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
-map <leader>f :ALEFix<CR>
 " ---
 
 " Enable syntax highlighting for flow and JSDoc
@@ -126,24 +130,23 @@ let g:javascript_plugin_jsdoc = 1
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 
-" JS, CSS, SASS, LESS, PUG
-" 2 spaces
-autocmd Filetype javascript,css,sass,less,pug set tabstop=2
-autocmd Filetype javascript,css,sass,less,pug set shiftwidth=2
-
-" HTML
 " 4 spaces in HTML
 autocmd Filetype html,htmldjango set tabstop=4
 autocmd Filetype html,htmldjango set shiftwidth=4
 
+" 2 spaces everywhere else
+autocmd Filetype javascript,css,sass,less,pug set tabstop=2
+autocmd Filetype javascript,css,sass,less,pug set shiftwidth=2
+
+
+" PYTHON
+" -------------
+
 " Indent Python in the Google way.
 
 setlocal indentexpr=GetGooglePythonIndent(v:lnum)
-
 let s:maxoff = 50 " maximum number of lines to look backwards.
-
 function GetGooglePythonIndent(lnum)
-
   " Indent inside parens.
   " Align with the open paren unless it is at the end of the line.
   " E.g.
@@ -167,11 +170,14 @@ function GetGooglePythonIndent(lnum)
 
   " Delegate the rest to the original function.
   return GetPythonIndent(a:lnum)
-
 endfunction
 
 let pyindent_nested_paren="&sw*2"
 let pyindent_open_paren="&sw*2"
 
+
 " Machine-local vim settings - keep this at the end
+" -------------
+
 silent! source ~/.vimrc.local
+
