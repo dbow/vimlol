@@ -105,6 +105,9 @@ endif
 " JAVASCRIPT
 " -------------
 
+" Manage JS language packs directly instead of through polyglot
+let g:polyglot_disabled = ['js']
+
 " ale
 " ---
 let g:ale_javascript_prettier_use_local_config = 1
