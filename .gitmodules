@@ -22,9 +22,6 @@
 [submodule "bundle/vim-styled-components"]
 	path = bundle/vim-styled-components
 	url = git@github.com:styled-components/vim-styled-components.git
-[submodule "bundle/vim-css3-syntax"]
-	path = bundle/vim-css3-syntax
-	url = https://github.com/hail2u/vim-css3-syntax.git
 [submodule "bundle/Base2Tone-vim"]
 	path = bundle/Base2Tone-vim
 	url = https://github.com/atelierbram/Base2Tone-vim.git
