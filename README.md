@@ -60,3 +60,20 @@ source ~/.nvm/nvm.sh
 	dt = difftool
 ```
 
+#### TODOs
+
+* Plugin manager
+    * Updates via pathogen are clunky. Should try
+        * [minpac](https://github.com/k-takata/minpac) - minimal, uses native vim8 packages
+        * [dein](https://github.com/Shougo/dein.vim) - successor to NeoBundle
+        * [vim-plug](https://github.com/junegunn/vim-plug) - also pretty minimal, and widely supported
+        * [vundle](https://github.com/VundleVim/Vundle.vim) - most widely used?
+* Syntax
+    * I like [yajs](https://github.com/othree/yajs.vim) (and especially its [es-next syntax](https://github.com/othree/es.next.syntax.vim)) for syntax but could not get [styled-components](https://github.com/styled-components/vim-styled-components) to highlight correctly with it.
+* Auto-completion
+    * maybe [vim-flow](https://github.com/flowtype/vim-flow) for a targeted thing
+    * or [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for a really over-the-top option...
+    * or something more targeted to JS with [tern for vim](https://github.com/ternjs/tern_for_vim)
+* Difftool
+    * eventually would like to try using something built-in, like gitdiff?
+    * find a good colorscheme for diffs... maybe [github's](https://github.com/endel/vim-github-colorscheme)?

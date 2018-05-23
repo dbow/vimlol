@@ -16,6 +16,12 @@ endif
 set background=dark
 colorscheme Base2Tone_PoolDark
 
+" Settings for vimdiff
+if &diff
+  syntax off
+  colorscheme delek
+endif
+
 if exists('+guifont')
   set guifont=Space\ Mono:h18
 endif
