@@ -101,6 +101,10 @@ let mapleader = ","
 vmap <tab>      >gv
 vmap <S-tab>    <gv
 
+" Tab navigation
+nnoremap <leader>n  :tabnext<CR>
+nnoremap <leader>p  :tabprev<CR>
+
 " Comment/uncomment lines (via tcomment)
 map <leader>/   gcc
 
