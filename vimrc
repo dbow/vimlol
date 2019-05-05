@@ -133,8 +133,12 @@ endif
 " ---
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_fix_on_save = 1
+let g:ale_linters = {
+\  'javascript': ['eslint', 'flow'],
+\}
 let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint'],
+\  'typescript': ['prettier', 'eslint'],
 \  'css': ['prettier'],
 \  'scss': ['prettier'],
 \  'markdown': ['prettier'],
@@ -166,8 +170,8 @@ autocmd Filetype html,htmldjango set tabstop=4
 autocmd Filetype html,htmldjango set shiftwidth=4
 
 " 2 spaces everywhere else
-autocmd Filetype javascript,css,sass,less,pug set tabstop=2
-autocmd Filetype javascript,css,sass,less,pug set shiftwidth=2
+autocmd Filetype javascript,typescript,css,sass,less,pug set tabstop=2
+autocmd Filetype javascript,typescript,css,sass,less,pug set shiftwidth=2
 
 
 " PYTHON
