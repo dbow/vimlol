@@ -8,6 +8,7 @@ endif
 
 " Plugins (via vim-plug)
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
 Plug 'atelierbram/Base2Tone-vim'
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
@@ -50,9 +51,7 @@ set showcmd                     " Show typed command prefixes while waiting for 
 
 set expandtab                   " Use soft tabs
 set tabstop=2                   " Tab settings
-set autoindent
 set smartindent
-set smarttab                    " Use shiftwidth to tab at line beginning
 set shiftwidth=2                " Width of autoindent
 set number                      " Line numbers
 set cc=80                       " Highlight 80 char column
@@ -68,13 +67,8 @@ set hidden                      " Allow hidden, unsaved buffers
 set splitright                  " Add new windows towards the right
 set splitbelow                  " ... and bottom
 set wildmode=list:longest       " Bash-like tab completion
-set scrolloff=3                 " Scroll when the cursor is 3 lines from edge
 set cursorline                  " Highlight current line
 
-set incsearch                   " Incremental search
-set history=1024                " History size
-
-set autoread                    " No prompt for file changes outside Vim
 set noswapfile                  " No swap file
 set nobackup                    " No backup file
 set nowritebackup
