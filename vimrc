@@ -1,9 +1,21 @@
-" Pathogen
-" --------
+" Install vim-plug if not present:
+"     https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-execute pathogen#infect()
-syntax enable
-filetype plugin indent on
+" Plugins (via vim-plug)
+call plug#begin('~/.vim/plugged')
+Plug 'atelierbram/Base2Tone-vim'
+Plug 'w0rp/ale'
+Plug 'mileszs/ack.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/nerdtree'
+call plug#end()
 
 " Configuration
 " -------------

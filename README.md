@@ -3,23 +3,19 @@ dbow's VIM setup
 ### To use
 
 * git clone to .vim/
-* `git submodule init`
-* `git submodule update`
+* Install dependencies below
+* `:PlugInstall` inside vim/nvim
 
-### Submodules
+### Plugins
 
-Anytime you pull in changes to one of the submodules, run `git submodule update`
+This uses [vim-plug](https://github.com/junegunn/vim-plug/) to manage vim plugins.
 
-To add a new submodule, run `git submodule add [the git URL] bundle/[directory]` and commit the result.
-
-To remove a submodule, run `git submodule deinit bundle/[directory]` and then `git rm bundle/[directory]` and commit the result.
-
-Pathogen is submoduled into vim-pathogen and the autoload directory symlinks to it.
+To add/update/remove a plugin, follow instructions in the [tutorial](https://github.com/junegunn/vim-plug/wiki/tutorial)
 
 ### Dependencies
 
-* Silver Searcher (Ag): https://github.com/ggreer/the_silver_searcher
-* fzf: https://github.com/junegunn/fzf
+* [Silver Searcher (Ag)](https://github.com/ggreer/the_silver_searcher)
+* [fzf](https://github.com/junegunn/fzf)
 
 ### Colors
 
@@ -62,12 +58,6 @@ source ~/.nvm/nvm.sh
 
 #### TODOs
 
-* Plugin manager
-    * Updates via pathogen are clunky. Should try
-        * [minpac](https://github.com/k-takata/minpac) - minimal, uses native vim8 packages
-        * [dein](https://github.com/Shougo/dein.vim) - successor to NeoBundle
-        * [vim-plug](https://github.com/junegunn/vim-plug) - also pretty minimal, and widely supported
-        * [vundle](https://github.com/VundleVim/Vundle.vim) - most widely used?
 * Syntax
     * I like [yajs](https://github.com/othree/yajs.vim) (and especially its [es-next syntax](https://github.com/othree/es.next.syntax.vim)) for syntax but could not get [styled-components](https://github.com/styled-components/vim-styled-components) to highlight correctly with it.
 * Auto-completion
