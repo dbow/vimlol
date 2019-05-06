@@ -153,6 +153,7 @@ let g:ale_fixers = {
 \  'scss': ['prettier'],
 \  'markdown': ['prettier'],
 \}
+let g:ale_completion_enabled = 1
 
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
