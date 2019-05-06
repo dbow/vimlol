@@ -58,8 +58,6 @@ source ~/.nvm/nvm.sh
 
 #### TODOs
 
-* Syntax
-    * I like [yajs](https://github.com/othree/yajs.vim) (and especially its [es-next syntax](https://github.com/othree/es.next.syntax.vim)) for syntax but could not get [styled-components](https://github.com/styled-components/vim-styled-components) to highlight correctly with it.
 * Auto-completion
     * maybe [vim-flow](https://github.com/flowtype/vim-flow) for a targeted thing
     * or [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for a really over-the-top option...

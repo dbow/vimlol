@@ -16,6 +16,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'HerringtonDarkholme/yats'
 call plug#end()
 
 " Configuration
@@ -134,6 +137,7 @@ endif
 
 " JAVASCRIPT
 " ----------
+let g:polyglot_disabled = ['javascript', 'typescript']
 
 " Ale
 " ---
