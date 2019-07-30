@@ -132,6 +132,9 @@ map <leader>f :FZF<CR>
 " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
+  " And feed Silver Searcher into FZF to respect .gitignore, etc.
+  " https://github.com/junegunn/fzf#respecting-gitignore
+  let $FZF_DEFAULT_COMMAND='ag -g ""'
 endif
 
 
