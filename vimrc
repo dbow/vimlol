@@ -18,7 +18,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
-Plug 'HerringtonDarkholme/yats'
 call plug#end()
 
 " Configuration
@@ -140,7 +139,7 @@ endif
 
 " JAVASCRIPT
 " ----------
-let g:polyglot_disabled = ['javascript', 'typescript']
+let g:polyglot_disabled = ['javascript']
 
 " Ale
 " ---
