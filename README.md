@@ -1,10 +1,10 @@
-dbow's VIM setup
+dbow's dev/vim setup
 
 ### To use
 
 * git clone to .vim/
 * Install dependencies below
-* `:PlugInstall` inside vim/nvim
+* `:PlugInstall` inside nvim
 
 ### Plugins
 
@@ -14,8 +14,25 @@ To add/update/remove a plugin, follow instructions in the [tutorial](https://git
 
 ### Dependencies
 
+(install w/ homebrew)
+* [neovim](https://neovim.io/)
 * [Silver Searcher (Ag)](https://github.com/ggreer/the_silver_searcher)
 * [fzf](https://github.com/junegunn/fzf)
+
+also install [nvm](https://github.com/nvm-sh/nvm) via the script
+
+### Typography
+
+* [space mono](https://fonts.google.com/specimen/Space+Mono)
+
+### Tools
+
+* [iTerm2](https://www.iterm2.com/)
+  * git clone [color scheme](https://github.com/atelierbram/Base2Tone-iterm2) and then import color preset in preferences.
+  * adjust typography in preferences
+* [VimR](https://github.com/qvacua/vimr)
+  * put `vimr` executable in /usr/local/bin/
+  * adjust typography in preferences (prefs override vimrc)
 
 ### Colors
 
@@ -31,37 +48,46 @@ Other options:
 
 ### Other dev environment stuff
 
-.bashrc
+.zshrc
 ```
 # Git
 source ~/.git-prompt.sh
-source ~/.git-completion.sh
+# https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+fpath=(~/.zsh $fpath)
 
-# Command prompt with git info.
-PS1='\[\033[1;34m\]localhost:\w\[\033[0;34m\]\n$(__git_ps1 "(%s)")\$\[\033[0m\] '
+# Command prompt with git info i.e.
+#   localhost:~/.vim
+#   (master)$
+setopt PROMPT_SUBST;
+PS1='%F{blue}%Blocalhost:%~%b
+$(__git_ps1 "(%s)")$ %f'
 
-# Node
+# Node/NVM
 source ~/.nvm/nvm.sh
 ```
 
-.gitconfig (uses p4merge as difftool)
+.gitconfig
+* uses p4merge as difftool
+* nvim as editor
 ```
 [diff]
-	tool = p4mergetool
+  tool = p4mergetool
 [difftool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
 [difftool]
-	prompt = false
+  prompt = false
 [alias]
-	dt = difftool
+  dt = difftool
+[core]
+  editor = /usr/local/bin/nvim
 ```
+
+Also install [git-lfs](https://git-lfs.github.com/) (which will update .gitconfig)
 
 #### TODOs
 
-* Auto-completion
-    * maybe [vim-flow](https://github.com/flowtype/vim-flow) for a targeted thing
-    * or [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for a really over-the-top option...
-    * or something more targeted to JS with [tern for vim](https://github.com/ternjs/tern_for_vim)
+* Auto-completion - anything beyond ale?
+* Go to definition?
 * Difftool
     * eventually would like to try using something built-in, like gitdiff?
     * find a good colorscheme for diffs... maybe [github's](https://github.com/endel/vim-github-colorscheme)?
