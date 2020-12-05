@@ -77,7 +77,6 @@ set nowritebackup
 
 set autowriteall                " Save when focus is lost
 
-
 " File tree
 " ---------
 
@@ -139,6 +138,8 @@ endif
 
 " JAVASCRIPT
 " ----------
+" NOTE(dbow): nvim doesn't like this after polyglot loads but vimr requires
+" it...
 let g:polyglot_disabled = ['javascript']
 
 " Ale
@@ -151,6 +152,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint'],
 \  'typescript': ['prettier', 'eslint'],
+\  'typescriptreact': ['prettier', 'eslint'],
 \  'css': ['prettier'],
 \  'scss': ['prettier'],
 \  'markdown': ['prettier'],
@@ -183,8 +185,8 @@ autocmd Filetype html,htmldjango set tabstop=4
 autocmd Filetype html,htmldjango set shiftwidth=4
 
 " 2 spaces everywhere else
-autocmd Filetype javascript,typescript,css,sass,less,pug set tabstop=2
-autocmd Filetype javascript,typescript,css,sass,less,pug set shiftwidth=2
+autocmd Filetype javascript,typescript,typescriptreact,css,sass,less,pug set tabstop=2
+autocmd Filetype javascript,typescript,typescriptreact,css,sass,less,pug set shiftwidth=2
 
 
 " PYTHON
