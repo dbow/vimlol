@@ -16,8 +16,7 @@ To add/update/remove a plugin, follow instructions in the [tutorial](https://git
 
 (install w/ homebrew)
 * [neovim](https://neovim.io/)
-* [Silver Searcher (Ag)](https://github.com/ggreer/the_silver_searcher)
-* [fzf](https://github.com/junegunn/fzf)
+* [ripgrep](https://github.com/BurntSushi/ripgrep) (or [Silver Searcher (Ag)](https://github.com/ggreer/the_silver_searcher))
 
 also install [nvm](https://github.com/nvm-sh/nvm) via the script
 

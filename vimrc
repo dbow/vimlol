@@ -8,6 +8,7 @@ endif
 
 " Plugins (via vim-plug)
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-sensible'
 Plug 'atelierbram/Base2Tone-vim'
 Plug 'w0rp/ale'
@@ -123,7 +124,6 @@ set omnifunc=syntaxcomplete#Complete
 " ------
 
 " FuzzyFinder via :FZF
-set rtp+=/usr/local/opt/fzf
 map <leader>f :FZF<CR>
 
 " Use ripgrep with :Ack
