@@ -126,15 +126,23 @@ set omnifunc=syntaxcomplete#Complete
 set rtp+=/usr/local/opt/fzf
 map <leader>f :FZF<CR>
 
-" Use Silver Searcher (Ag) with :Ack
+" Use ripgrep with :Ack
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
+  " And feed ripgrep into FZF to respect .gitignore, etc.
+  " https://github.com/junegunn/fzf#respecting-gitignore
+  let $FZF_DEFAULT_COMMAND='rg --files'
+" Or use Silver Searcher (Ag) with :Ack
 " https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
-if executable('ag')
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
   " And feed Silver Searcher into FZF to respect .gitignore, etc.
   " https://github.com/junegunn/fzf#respecting-gitignore
   let $FZF_DEFAULT_COMMAND='ag -g ""'
 endif
 
+" Any empty ack search will search for the word the cursor is on
+let g:ack_use_cword_for_empty_search = 1
 
 " JAVASCRIPT
 " ----------
