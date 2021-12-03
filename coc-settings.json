@@ -1,0 +1,25 @@
+{
+  "diagnostic.errorSign": "🔥",
+  "diagnostic.warningSign": "🤔",
+  "tsserver.formatOnType": true,
+  "coc.preferences.jumpCommand": "tabe",
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "css",
+    "markdown",
+    "json",
+    "graphql"
+  ],
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.onlyUseLocalVersion": true
+}

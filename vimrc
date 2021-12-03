@@ -6,12 +6,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" NOTE(dbow): nvim doesn't like this after polyglot loads but vimr requires
+" it...
+let g:polyglot_disabled = ['javascript']
+
 " Plugins (via vim-plug)
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-sensible'
 Plug 'atelierbram/Base2Tone-vim'
-Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
@@ -19,6 +22,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Configuration
@@ -30,7 +34,7 @@ if $COLORTERM ==# 'truecolor'
 endif
 
 set background=dark
-colorscheme Base2Tone_PoolDark
+colorscheme Base2Tone_SuburbDark
 
 " Settings for vimdiff
 if &diff
@@ -78,6 +82,162 @@ set nowritebackup
 
 set autowriteall                " Save when focus is lost
 
+" For keybindings
+let mapleader = ","
+" tcomment's 'ic' binding interferes with CoC below.
+let g:tcomment_textobject_inlinecomment = ''
+
+" CoC config
+" largely based on https://github.com/neoclide/coc.nvim#example-vim-configuration
+" ---------
+
+set cmdheight=2                 " Give more space for displaying messages.
+set updatetime=300              " Having longer updatetime leads to bad experience
+set shortmess+=c                " Don't pass messages to |ins-completion-menu|.
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>cf  <Plug>(coc-format-selected)
+nmap <leader>cf <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Use autocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+let g:coc_global_extensions = ['coc-json', 'coc-yaml', 'coc-prettier', 'coc-eslint', 'coc-tsserver', 'coc-flow']
+
 " File tree
 " ---------
 
@@ -96,14 +256,20 @@ let g:NERDTreeChDirMode=2
 " -- INSERT -- is redundant because the mode information is displayed in the statusline:
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'Base2Tone_Pool',
+      \ 'colorscheme': 'Base2Tone_Suburb',
+      \ 'active': {
+        \ 'left': [ [ 'mode', 'paste' ],
+        \     [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+        \ },
+        \ 'component_function': {
+          \ 'cocstatus': 'coc#status'
+          \ },
       \ }
 " (template is smart and detects light or dark colorscheme being used)
 
 
 " Keybindings
 " -----------
-let mapleader = ","
 
 " Indent/unindent visual mode selection
 vmap <tab>      >gv
@@ -112,6 +278,7 @@ vmap <S-tab>    <gv
 " Tab navigation
 nnoremap <leader>n  :tabnext<CR>
 nnoremap <leader>p  :tabprev<CR>
+nnoremap <leader>t  :tabnew<CR>
 
 " Comment/uncomment lines (via tcomment)
 map <leader>/   gcc
@@ -146,41 +313,6 @@ let g:ack_use_cword_for_empty_search = 1
 
 " JAVASCRIPT
 " ----------
-" NOTE(dbow): nvim doesn't like this after polyglot loads but vimr requires
-" it...
-let g:polyglot_disabled = ['javascript']
-
-" Ale
-" ---
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fix_on_save = 1
-let g:ale_linters = {
-\  'javascript': ['eslint', 'flow'],
-\}
-let g:ale_fixers = {
-\  'javascript': ['prettier', 'eslint'],
-\  'typescript': ['prettier', 'eslint'],
-\  'typescriptreact': ['prettier', 'eslint'],
-\  'css': ['prettier'],
-\  'scss': ['prettier'],
-\  'markdown': ['prettier'],
-\}
-let g:ale_completion_enabled = 1
-
-highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-
-let g:ale_sign_error = '🔥'
-let g:ale_sign_warning = '🤔'
-
-" %linter% is the name of the linter that provided the message
-" %s is the error or warning message
-let g:ale_echo_msg_format = '%linter% says %s'
-
-" Map keys to navigate between lines with errors and warnings.
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
-" ---
 
 " Enable syntax highlighting for flow and JSDoc
 let g:javascript_plugin_flow = 1

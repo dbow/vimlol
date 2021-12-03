@@ -20,6 +20,11 @@ To add/update/remove a plugin, follow instructions in the [tutorial](https://git
 
 also install [nvm](https://github.com/nvm-sh/nvm) via the script
 
+In `~/.config/nvim/` create a symlink to this settings file for CoC in nvim:
+```
+ln -s ~/.vim/coc-settings.json coc-settings.json
+```
+
 ### Typography
 
 * [space mono](https://fonts.google.com/specimen/Space+Mono)
@@ -85,8 +90,6 @@ Also install [git-lfs](https://git-lfs.github.com/) (which will update .gitconfi
 
 #### TODOs
 
-* Auto-completion - anything beyond ale?
-* Go to definition?
 * Difftool
     * eventually would like to try using something built-in, like gitdiff?
     * find a good colorscheme for diffs... maybe [github's](https://github.com/endel/vim-github-colorscheme)?
