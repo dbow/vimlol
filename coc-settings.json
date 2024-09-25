@@ -2,6 +2,7 @@
   "diagnostic.errorSign": "🔥",
   "diagnostic.warningSign": "🤔",
   "tsserver.formatOnType": true,
+  "typescript.preferences.importModuleSpecifier": "project-relative",
   "coc.preferences.jumpCommand": "tabe",
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
