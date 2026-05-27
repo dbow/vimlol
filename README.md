@@ -20,7 +20,23 @@ To add/update/remove a plugin, follow instructions in the [tutorial](https://git
 
 also install [nvm](https://github.com/nvm-sh/nvm) via the script
 
-In `~/.config/nvim/` create a symlink to this settings file for CoC in nvim:
+##### NVIM setup
+
+By default, Neovim looks for its configuration files in `~/.config/nvim/init.vim` (or `init.lua`) instead of the traditional Vim locations (`~/.vimrc` and `~/.vim/`). If you want Neovim to seamlessly use your existing Vim configuration and plugins without maintaining two separate setups, you must explicitly tell Neovim to load them.
+
+1. Create the neovim config directory if it does not already exist:
+```
+mkdir -p ~/.config/nvim
+```
+2. Create and open `~/.config/nvim/init.vim` in your text editor.
+3. Paste the following:
+```
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vim/vimrc
+```
+
+Also in `~/.config/nvim/` create a symlink to this settings file for CoC in nvim:
 ```
 ln -s ~/.vim/coc-settings.json coc-settings.json
 ```

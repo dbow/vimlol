@@ -24,5 +24,8 @@
   ],
   "prettier.onlyUseLocalVersion": true,
   "css.lint.unknownAtRules": "ignore",
-  "css.validate": false
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
