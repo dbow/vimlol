@@ -90,8 +90,8 @@ fpath=(~/.zsh $fpath)
 #   localhost:~/.vim
 #   (master)$
 setopt PROMPT_SUBST;
-PS1='%F{magenta}%Blocalhost:%~%b
-$(__git_ps1 "(%s)")$ %f'
+PS1='%F{magenta}%Blocalhost:%~%b%f
+%F{cyan}$(__git_ps1 "(%s)")$ %f'
 
 # Node/NVM
 source ~/.nvm/nvm.sh
