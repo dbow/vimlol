@@ -14,7 +14,7 @@ let g:polyglot_disabled = ['javascript']
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-sensible'
-Plug 'atelierbram/Base2Tone-vim'
+Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
@@ -34,7 +34,7 @@ if $COLORTERM ==# 'truecolor'
 endif
 
 set background=dark
-colorscheme Base2Tone_SuburbDark
+colorscheme Tomorrow-Night-Eighties
 
 " Settings for vimdiff
 if &diff

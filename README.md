@@ -56,12 +56,20 @@ ln -s ~/.vim/coc-settings.json coc-settings.json
 
 ### Colors
 
-Currently [Base2Tone Pool](http://base2t.one/demo/pool/) (Space and Evening aren't bad either...)
+Currently [Tomorrow Night Eighties](https://github.com/chriskempson/tomorrow-theme) via [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
+Seriously considered:
+* Sonokai
+* Monokai Pro Octagon
+* Fairyfloss
+* Kanagawabones
+* Rose Pine Mono
+* Pale Night HC
+* Elegant
+
+Formerly [Base2Tone Pool](http://base2t.one/demo/pool/) (Space and Evening aren't bad either...)
 
 Other options:
 
-* Great way to find schemes: [http://vimcolors.com/](http://vimcolors.com/)
-* Good variations: [https://nightsense.github.io/vimspectr/](https://nightsense.github.io/vimspectr/)
 * Oceanic Next (classic option): [https://github.com/mhartington/oceanic-next](https://github.com/mhartington/oceanic-next)
 * Gruvbox (also classic): [https://github.com/morhetz/gruvbox](https://github.com/morhetz/gruvbox)
 
@@ -79,7 +87,7 @@ fpath=(~/.zsh $fpath)
 #   localhost:~/.vim
 #   (master)$
 setopt PROMPT_SUBST;
-PS1='%F{blue}%Blocalhost:%~%b
+PS1='%F{magenta}%Blocalhost:%~%b
 $(__git_ps1 "(%s)")$ %f'
 
 # Node/NVM
