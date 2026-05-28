@@ -56,7 +56,10 @@ ln -s ~/.vim/coc-settings.json coc-settings.json
 
 ### Colors
 
-Currently [Tomorrow Night Eighties](https://github.com/chriskempson/tomorrow-theme) via [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
+Currently [everforest](https://github.com/sainnhe/everforest) (with [iTerm2 port](https://github.com/icewind/everforest.iterm2))
+
+And fall back to equally cool [Tomorrow Night Eighties](https://github.com/chriskempson/tomorrow-theme) via [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
+
 Seriously considered:
 * Sonokai
 * Monokai Pro Octagon

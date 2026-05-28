@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-sensible'
 Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'sainnhe/everforest'
 Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
@@ -34,7 +35,9 @@ if $COLORTERM ==# 'truecolor'
 endif
 
 set background=dark
-colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night-Eighties
+" let g:everforest_background = 'hard'
+colorscheme everforest
 
 " Settings for vimdiff
 if &diff
@@ -265,7 +268,7 @@ let g:NERDTreeChDirMode=2
 " -- INSERT -- is redundant because the mode information is displayed in the statusline:
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'Base2Tone_Suburb',
+      \ 'colorscheme': 'everforest',
       \ 'active': {
         \ 'left': [ [ 'mode', 'paste' ],
         \     [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
